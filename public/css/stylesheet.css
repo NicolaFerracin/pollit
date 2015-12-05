@@ -1,0 +1,41 @@
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.logo {
+  font-family: 'Lobster', cursive;
+  font-size: 200%;
+}
+
+#banner {
+  border-bottom: none;
+  margin-top: -20px;
+}
+
+#banner h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 150px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+#banner p {
+  font-size: 20px;
+}
+
+.hero-unit {
+  position: relative;
+  padding: 30px 15px;
+  color: #F5F5F5;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background: #66BB6A;
+}
+
+.image {
+  margin: 20px;
+}
+
+.footer {
+  text-align: center;
+}
