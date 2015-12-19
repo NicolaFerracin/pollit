@@ -21,10 +21,14 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 
-
-
-// routes ======================================================================
 require('./app/routes.js')(app);
+
+// directing api calls to route.js express routing instead of angular routing
+
+app.get('/*', function(req, res, next) {
+  // Just send the index.html for other files to support HTML5Mode
+  res.sendfile('/public/index.html', { root: __dirname });
+});
 
 // listen (start app with node server.js) ======================================
 app.listen(port);

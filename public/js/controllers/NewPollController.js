@@ -10,7 +10,6 @@ app.controller('NewPollController', ['$scope', '$http', '$window', function($sco
   ]
 
   $scope.addAnswer = function() {
-    console.log($window)
     id++;
     $scope.answers.push({ id : id, text : "", votes : 0});
     $scope.submitButtonDisabled = true;
@@ -41,7 +40,6 @@ app.controller('NewPollController', ['$scope', '$http', '$window', function($sco
     // submit obj to db
     $http.post('/api/polls', newPoll)
     .success(function(data) {
-      console.log("asdas");
       $window.location.href = '/home';
     })
     .error(function(data) {

@@ -5,6 +5,7 @@ module.exports = function(app) {
 	// api ---------------------------------------------------------------------
 	// create poll
 	app.post('/api/polls', function(req, res) {
+		console.log("asdsa")
 		Poll.create({
 			question : req.body.question,
 			answers : req.body.answers,
