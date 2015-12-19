@@ -1,4 +1,4 @@
-app.controller('NewPollController', ['$scope', '$http', '$window', '$route', function($scope, $http, $window, $route) {
+app.controller('NewPollController', ['$scope', '$http', '$window', function($scope, $http, $window) {
 
   var id = 1;
 
@@ -41,16 +41,11 @@ app.controller('NewPollController', ['$scope', '$http', '$window', '$route', fun
     // submit obj to db
     $http.post('/api/polls', newPoll)
     .success(function(data) {
-      console.log(data);
-      $window.location.href = '#/home';
+      console.log("asdas");
+      $window.location.href = '/home';
     })
     .error(function(data) {
       console.log("Error: " + data);
     });
-  }
-
-  $scope.reloadCtrl = function(){
-    console.log('reloading...');
-    $route.reload();
   }
 }]);

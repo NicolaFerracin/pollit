@@ -17,10 +17,15 @@ module.exports = function(app) {
 		});
 	});
 
-	// application
-	app.get('/*', function(req, res) {
-		// load the home page
-		res.sendfile(__dirname, 'public/index.html');
+	// get all polls
+	app.get('/api/polls', function(req, res) {
+		// use mongoose to get all polls from the db
+		Poll.find(function(err, polls) {
+			// if err, send it
+			if (err) {
+				res.send(err);
+			}
+			res.json(polls);
+		});
 	});
-
 };

@@ -1,14 +1,14 @@
 <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-      <div class="page-header">
-        <h1>Browse Polls</h1>
-      </div>
-      <div ng-repeat="poll in polls">
-        <h3>
-          <a href="./polls/{{poll._id}}">Q. {{poll.question}}</a>
-        </h3>
-        <span>by {{poll.author}}</span>
-        <span style="float: right;">Answers given: {{poll.votes}}</span>
-      </div>
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="page-header">
+      <h1>Browse Polls</h1>
+    </div>
+    <div ng-repeat="poll in polls">
+      <h3>
+        <a href="./polls/{{poll._id}}">{{poll.question}}</a>
+      </h3>
+      <span>by {{poll.author}}</span>
+      <span style="float: right;">Answers given: {{poll.votes}}</span>
     </div>
   </div>
+</div>
