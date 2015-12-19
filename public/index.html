@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<base href="/">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>PollIt</title>
@@ -38,7 +39,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="poll_navbar">
 				<ul class="nav navbar-nav">
-					<li><a href="#/browsePolls">Browse Polls</a></li>
+					<li><a href="/browsePolls">Browse Polls</a></li>
 				</ul>
 				<!-- right navbar login and signup form -->
 				<ul class="nav navbar-nav navbar-right">
@@ -55,7 +56,7 @@
 					</li>
 					<li>
 						<p class="navbar-btn">
-							<a href="#/signup" class="btn btn-primary">Sign Up</a>
+							<a href="/signup" class="btn btn-primary">Sign Up</a>
 						</p>
 					</li>
 				</ul>
@@ -78,6 +79,7 @@
 	<!-- Controllers -->
 	<script src="js/controllers/HomeController.js"></script>
 	<script src="js/controllers/LoginController.js"></script>
+	<script src="js/controllers/NewPollController.js"></script>
 
 	<!-- Services
 	<script src="js/services/photos.js"></script>

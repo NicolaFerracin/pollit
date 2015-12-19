@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var Answer = {
+	id : {type: Number, min: 0},
 	text : String,
 	votes : {type: Number, min: 0}
 };
@@ -8,6 +9,5 @@ var Answer = {
 module.exports = mongoose.model('Poll', {
 	question : String,
 	answers : [Answer],
-	views : {type: Number, min: 0},
 	author : String
 });

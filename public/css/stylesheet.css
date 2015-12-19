@@ -1,12 +1,10 @@
-* {
-  font-family: 'Ubuntu', sans-serif;
-}
-
+/* nav bar */
 .logo {
   font-family: 'Lobster', cursive;
   font-size: 200%;
 }
 
+/* home view */
 #banner {
   border-bottom: none;
   margin-top: -20px;
@@ -36,6 +34,16 @@
   margin: 20px;
 }
 
+/* New Poll view */
+.answer {
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+/* footer */
 .footer {
   text-align: center;
 }

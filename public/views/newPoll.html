@@ -3,5 +3,26 @@
     <div class="page-header">
       <h1>New Poll</h1>
     </div>
+    <form name="poll" ng-submit="save(poll)">
+      <div class="form-group">
+        <label>Question</label>
+        <input name="question" ng-model="question" type="text" class="form-control" placeholder="Question" required>
+      </div>
+      <div class="form-group">
+        <label>Answers</label>
+        <div ng-repeat="answer in answers">
+          <div ng-class="{true : 'input-group'}[answers.length > 2]">
+            <input type="text" name="answer{{answer.id}}" ng-model="answer.text" class="form-control answer" placeholder="Answer" required>
+            <span ng-hide="answers.length <= 2" class="input-group-addon">
+              <a ng-click="removeAnswer($index)">
+                <i class="glyphicon glyphicon-remove text-danger"></i>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+      <button ng-disabled="poll.$invalid || submitted" type="submit" class="btn btn-success">Create Poll</button>
+      <button type="button" style="float:right;" ng-click="addAnswer()" class="btn btn-primary">Add Answer</button>
+    </form>
   </div>
 </div>
