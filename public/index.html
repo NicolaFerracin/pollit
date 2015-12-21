@@ -44,12 +44,12 @@
 				<!-- right navbar login and signup form -->
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<form class="navbar-form" role="login">
+						<form class="navbar-form" role="login" action="/signup" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Email">
+								<input type="text" class="form-control" placeholder="Email" name="email">
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Password">
+								<input type="password" class="form-control" placeholder="Password" name="password">
 							</div>
 							<button type="submit" class="btn btn-default">Login</button>
 						</form>
@@ -81,9 +81,7 @@
 	<script src="js/controllers/LoginController.js"></script>
 	<script src="js/controllers/NewPollController.js"></script>
 	<script src="js/controllers/BrowseController.js"></script>
-
-	<!-- other imports -->
-	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500' rel='stylesheet' type='text/css'>
+	<script src="js/controllers/SignupController.js"></script>
 
 </body>
 </html>

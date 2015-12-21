@@ -43,6 +43,11 @@
     margin-bottom: 10px;
 }
 
+/* Signup */
+.alert {
+  color: red;
+}
+
 /* footer */
 .footer {
   text-align: center;
