@@ -1,8 +1,8 @@
-app.controller('SignupController', ['$scope', '$http', function($scope, $http) {
+app.controller('SignupController', ['$scope', '$http', '$window', function($scope, $http, $window) {
 
   $scope.submitted = false;
-
-  $scope.showAlert = false;
+  $scope.showPasswordAlert = false;
+  $scope.showErrorAlert = false;
 
   $scope.account = {
     email : '',
@@ -10,21 +10,32 @@ app.controller('SignupController', ['$scope', '$http', function($scope, $http) {
     repeatPassword : ''
   }
 
+
   $scope.signup = function(account) {
     $scope.submitted = true;
 
     if (account.password != account.repeatPassword) {
       $scope.submitted = false;
-      $scope.showAlert = true;
+      $scope.showPasswordAlert = true;
     }
 
-    // submit obj to db
-    $http.post('/signup', {username: account.username, password: account.password})
-    .success(function(data) {
-      console.log("yuhu: " + data);;
+    var user = {
+      email : account.email,
+      password : account.password
+    };
+
+    $http.post("/api/signup", user)
+    .success(function (data, status) {
+      console.log('Successful login.');
+      console.log('data = ' + data);
+      console.log('status = ' + status);
+      $window.location.href = '/home.html';
     })
-    .error(function(data) {
-      console.log("Error: " + data);
+    .error(function (data) {
+      console.log('Error: ' + data);
+      $scope.showErrorAlert = true;
     });
-  }
+  };
+
+
 }]);

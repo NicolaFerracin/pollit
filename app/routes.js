@@ -45,8 +45,8 @@ module.exports = function(app, passport) {
 
 // process the login form
 app.post('/login', passport.authenticate('local-login', {
-	successRedirect : '/', // redirect to the secure profile section
-	failureRedirect : '/login', // redirect back to the signup page if there is an error
+	successRedirect : '/newPoll', // redirect to the secure profile section
+	failureRedirect : '/', // redirect back to the signup page if there is an error
 	failureFlash : true // allow flash messages
 }));
 
@@ -62,11 +62,29 @@ res.render('signup.ejs', { message: req.flash('signupMessage') });
 });
 */
 
+// Express Route with passport authentication and custom callback
+ app.post('/api/signup', function(req, res, next) {
+		 passport.authenticate('local-signup', function(err, user, info) {
+			 if (err) {
+			 return next(err);
+		 }
+		 if (user === false) {
+			 res.status(401).send(req.flash('signupMessage'));
+		 } else {
+			 res.status(200).send("success!");
+		 }
+	 })(req, res, next);
+ });
+
+
+/*
 // process the signup form
 app.post('/signup', passport.authenticate('local-signup', {
         successRedirect : '/',
-        failureRedirect : '/signup'
+        failureRedirect : '/signup',
+				failureFlash: true
 			}));
+			*/
 
 // =====================================
 // LOGOUT ==============================
