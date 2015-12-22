@@ -1,5 +1,9 @@
 var app = angular.module('PollitApp', ['ngRoute']);
 
+app.service('User', function () {
+    return {};
+})
+
 app.config(function ($routeProvider, $locationProvider) {
   $routeProvider
   .when('/browsePolls', {

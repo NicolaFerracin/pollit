@@ -29,7 +29,7 @@ app.controller('SignupController', ['$scope', '$http', '$window', function($scop
       console.log('Successful login.');
       console.log('data = ' + data);
       console.log('status = ' + status);
-      $window.location.href = '/home.html';
+      $window.location.href = '/';
     })
     .error(function (data) {
       console.log('Error: ' + data);
