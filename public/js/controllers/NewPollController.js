@@ -1,7 +1,7 @@
 app.controller('NewPollController', ['$scope', '$http', '$window', 'User', function($scope, $http, $window, User) {
 
   if (User.email == undefined) {
-    $window.location.href = '/home.html';
+    $window.location.href = '/home';
   }
 
   var id = 1;
