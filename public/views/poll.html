@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="page-header">
+      <div style="float: right;">
+        <div>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">
+            <img style="width: 30px;" alt="Twitter share button" src="../img/tw_logo.png"/>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u="+url target="_blank">
+            <img style="width: 28px;" alt="Facebook share button" src="../img/fb_logo.png"/>
+          </a>
+        </div>
+      </div>
+      <h1>{{poll.question}}</h1>
+      <div>
+        <span>by {{poll.author}}</span>
+        <span style="float:right;">Total answers: {{totalAnswers}}</span>
+      </div>
+    </div>
+    <form name="form" ng-submit="answerPoll()">
+      <span ng-show="error && !radioValue" style="color: red;">Select an answer, please.</span>
+      <div ng-repeat="answer in poll.answers" class="radio">
+        <label>
+          <input type="radio" ng-value="answer" id="answer.id" ng-model="$parent.radioValue" name="option">
+          {{answer.text}}
+        </label>
+      </div>
+
+      <div ng-show="showNewAnswerInput" class="input-group">
+        <input type="text" class="form-control" placeholder="New Answer" ng-model="newAnswer">
+        <span class="input-group-btn">
+          <button id="addNewAnswer" ng-disabled="!newAnswer" ng-click="addAnswer()" class="btn btn-default" type="button">Add</button>
+        </span>
+      </div><!-- /input-group -->
+
+      <div style="margin-top: 15px;">
+        <button id="submit" type="submit" class="btn btn-primary">Send Answer</button>
+        <button ng-show="isAuthor" id="delete" class="btn btn-danger" ng-click="deletePoll(poll._id)">Delete Poll</button>
+        <button ng-disabled="showNewAnswerInput" ng-hide="user.email === undefined" style="float: right;" ng-click="showNewAnswerInput = true" type="button" class="btn btn-default">Add New Answer</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </div>
+</div>

@@ -1,31 +1,22 @@
 app.controller('IndexController', ['$scope', '$http', 'User', '$window', function($scope, $http, User, $window) {
 
-  $scope.isLoggedIn = false;
+  $scope.user = User;
 
   $http.get("/loggedin")
   .success(function (data) {
-    if (data !== undefined && data != "" ) {
-      $scope.user = data;
-      $scope.isLoggedIn = true;
-      User.isLoggedIn = true;
-      User.email = $scope.user;
+    if (data.isLoggedIn) {
+      User.isLoggedIn = data.isLoggedIn;
+      User.email = data.email;
+      $scope.user = User;
     }
-    else {
-      User.isLoggedIn = false;
-      User.email = '';
-      $scope.isLoggedIn = false;
-    }})
-    .error(function (err) {
-      console.log('Error: ' + err);
-    });
-
-console.log(User)
-
+  })
+  .error(function (err) {
+    console.log('Error: ' + err);
+  });
 
   $scope.logout = function() {
     $http.get("/logout");
     User.isLoggedIn = false;
-    User.email = '';
-    $scope.isLoggedIn = false;
+    User.email = undefined;
   }
 }]);

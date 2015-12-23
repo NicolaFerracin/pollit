@@ -1,9 +1,11 @@
-app.controller('BrowseController', ['$scope', '$http', function($scope, $http) {
-
+app.controller('MyPollsController', ['$scope', '$http', 'User', '$window', function($scope, $http, User, $window) {
 
   // get all polls from DB
-  $http.get('/api/polls')
+  $http.get('/api/polls/' + User.email)
   .success(function(data) {
+    if (data.length == 0) {
+      $window.location.href = '/home.html';
+    }
     $scope.polls = data;
     sumVotes(data);
     console.log(data);
@@ -21,14 +23,4 @@ app.controller('BrowseController', ['$scope', '$http', function($scope, $http) {
       polls[i].votes = votes;
     }
   }
-
-
 }]);
-
-app.filter('reverse', function() {
-  return function(items) {
-    if (items) {
-      return items.slice().reverse();
-    }
-  };
-});

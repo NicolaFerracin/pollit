@@ -36,16 +36,21 @@
 
 /* New Poll view */
 .answer {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .input-group {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* Signup */
 .alert {
   color: red;
+}
+
+/* common to all ng-view views */
+.view {
+  margin-bottom: 70px;
 }
 
 /* footer */

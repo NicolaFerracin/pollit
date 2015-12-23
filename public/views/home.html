@@ -9,10 +9,10 @@
         <img class="image" height="100px" src="./img/analyze.png">
       </div>
       <p style="font-size:30px;">All in one place</p>
-      <a ng-show="{{isLoggedIn}}" href="/newPoll"><button style="margin-top:15px" type="button" class="btn btn-default btn-lg">
+      <a ng-show="user.isLoggedIn" href="/newPoll"><button style="margin-top:15px" type="button" class="btn btn-default btn-lg">
         New Poll
       </button></a>
-      <a ng-hide="{{isLoggedIn}}" href="/browsePolls"><button style="margin-top:15px" type="button" class="btn btn-default btn-lg">
+      <a ng-hide="user.isLoggedIn" href="/browsePolls"><button style="margin-top:15px" type="button" class="btn btn-default btn-lg">
         Browse Polls
       </button></a>
     </header>

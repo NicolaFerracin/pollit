@@ -27,8 +27,6 @@ app.controller('SignupController', ['$scope', '$http', '$window', function($scop
     $http.post("/api/signup", user)
     .success(function (data, status) {
       console.log('Successful login.');
-      console.log('data = ' + data);
-      console.log('status = ' + status);
       $window.location.href = '/';
     })
     .error(function (data) {

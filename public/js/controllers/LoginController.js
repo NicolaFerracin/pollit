@@ -22,8 +22,6 @@ app.controller('LoginController', ['$scope', '$http', '$window', function($scope
     $http.post("/api/login", user)
     .success(function (data, status) {
       console.log('Successful login.');
-      console.log('data = ' + data);
-      console.log('status = ' + status);
       $window.location.href = '/';
     })
     .error(function (data) {

@@ -1,4 +1,8 @@
-app.controller('NewPollController', ['$scope', '$http', '$window', function($scope, $http, $window) {
+app.controller('NewPollController', ['$scope', '$http', '$window', 'User', function($scope, $http, $window, User) {
+
+  if (User.email == undefined) {
+    $window.location.href = '/home.html';
+  }
 
   var id = 1;
 
@@ -25,7 +29,7 @@ app.controller('NewPollController', ['$scope', '$http', '$window', function($sco
   $scope.save = function(poll) {
     $scope.submitted = true;
     // if form is invalid, return
-    if (poll.$invalid) {
+    if (poll.$invalid || User.email == undefined) {
       // do nothing and return
       return
     }
@@ -34,7 +38,7 @@ app.controller('NewPollController', ['$scope', '$http', '$window', function($sco
       question : $scope.question,
       answers : $scope.answers,
       views : 0,
-      author : "admin"
+      author : User.email
     }
 
     // submit obj to db
