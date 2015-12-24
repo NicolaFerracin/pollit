@@ -17,4 +17,10 @@
     "express-session": "~1.0.0",
     "cookie-parser": "~1.0.0"
   }
+  "engines": {
+    "npm" : "2.11.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
 }
