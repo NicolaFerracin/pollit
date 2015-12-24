@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 var flash = require('connect-flash');
 var session = require('express-session');
+var port = process.env.PORT || 8080 // setting up the port
 
 // configuration ===============================================================
 mongoose.connect(database.url); 	// connect to mongoDB database on modulus.io
@@ -40,5 +41,5 @@ app.get('/*', function(req, res, next) {
 });
 
 // listen (start app with node server.js) ======================================
-app.listen(process.env.PORT || 8080);
+app.listen(port);
 console.log("App listening on port " + port);
