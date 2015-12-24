@@ -1,4 +1,4 @@
-var Poll = require('./models/Poll');
+var Poll = require('./models/poll');
 var User = require('./models/user');
 
 module.exports = function(app, passport) {
